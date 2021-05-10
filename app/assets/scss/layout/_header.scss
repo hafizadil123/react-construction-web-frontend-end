@@ -1,0 +1,121 @@
+.header{
+  background-color: $white;
+  border-bottom: 1px solid $gray-400;
+  padding: 10px 20px;
+  .navigation{
+    display: flex;
+    align-items: center;
+    li{
+      margin-right: 20px;
+      font-size: 13px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+    .logo{
+      max-width: 60px;
+      margin-right: 35px;
+      flex-shrink: 0;
+      img{
+        display: block;
+        max-width: 100%;
+      }
+    }
+    .link{
+      display: block;
+      color:$secondary;
+      text-decoration: none;
+      :hover{
+        color:darken($secondary, 10%);
+      }
+    }
+  }
+  .header-details{
+    display: none !important;
+    color:$secondary;
+    img{
+      width:20px;
+    }
+    .number{
+      border-right:1px solid $secondary;
+      padding-right:4px;
+    }
+  }
+  @include media-breakpoint-up(sm){
+    .navigation{
+      li{
+        margin-right: 40px;
+        font-size: 14px;
+      }
+    }
+  }
+  @include media-breakpoint-up(lg){
+    position: absolute;
+    top:50px;
+    left: 70px;
+    z-index: 10;
+    border-bottom: none;
+    padding: 0;
+    .navigation{
+      align-items: flex-start;
+      li{
+        margin-right: 30px;
+        font-size: 16px;
+      }
+      .logo{
+        max-width: 110px;
+      }
+    }
+  }
+  @include media-breakpoint-up(xl){
+    left: 100px;
+    .navigation{
+      .logo{
+        max-width: 130px;
+      }
+    }
+  }
+}
+
+.header-portfolio{
+  @include media-breakpoint-up(md){
+    nav{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-details{
+      display: flex !important;
+      font-size: 12px;
+    }
+  }
+  @include media-breakpoint-up(lg){
+    position: relative;
+    top:initial;
+    left: initial;
+    padding: 10px 30px 10px 50px;
+    margin-left: -80px;
+    border-bottom: 1px solid $gray-400;
+    .navigation{
+      align-items: center;
+      li{
+        margin-right: 40px;
+      }
+      .logo{
+        max-width: 60px;
+      }
+    }
+    .header-details{
+      font-size: 13px;
+    }
+  }
+  @include media-breakpoint-up(xl){
+    left: initial;
+    padding: 10px 30px 10px 80px;
+    .navigation{
+      .logo{
+        max-width: 60px;
+      }
+    }
+  }
+}

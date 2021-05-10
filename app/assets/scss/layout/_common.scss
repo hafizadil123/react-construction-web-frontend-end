@@ -1,0 +1,681 @@
+//hero section styling
+
+.hero{
+  display: flex;
+  .content{
+    width: 100%;
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    &::before{
+      content:'';
+      position: absolute;
+      top: 0;
+      left:0;
+      width:50px;
+      height: 10px;
+      background-color: $primary;
+      z-index: 3;
+    }
+    .title{
+      background-color: rgba(255,255,255,0.7);
+      padding:30px 20px;
+      margin: -10px -10px 0;
+      position: relative;
+      &::before{
+        content:"";
+        position: absolute;
+        top: 0;
+        left:0;
+        right: 0;
+        height: 52%;
+        z-index: 1;
+        background-color: $white;
+      }
+      h1{
+        font-size: 36px;
+        font-weight: bold;
+        font-family: 'Roboto Condensed', sans-serif;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+        text-transform: uppercase;
+      }
+      .btn{
+        display:inline-block;
+        margin-top:25px;
+      }
+      
+    }
+    .desc{
+      font-size: 14px;
+      p{
+        font-weight: 400;
+      }
+      .details{
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .btn{
+        display:none;
+      }
+    }
+    .contact-details{
+      img{
+        max-width: 40px;
+        min-width: 40px;
+        display: block;
+      }
+    }
+  }
+
+  .img-section{
+    width:52%;
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: cover;
+  }
+
+  @include media-breakpoint-down(md){
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: cover;
+    color:$white;
+    border-left:20px solid $primary;
+    box-shadow: inset 0 0 0 100vw rgb(0 0 0 / 20%);
+  }
+  @include media-breakpoint-up(lg){
+    background-image: none !important;
+    .content{
+      padding: 160px 30px 80px 70px;
+      width: 54%;
+      text-align: left;
+      &::before{
+        width:100px;
+        height: 15px;
+      }
+      .title{
+        background-color: $white;
+        margin: 0 -120px 20px 0;
+        padding: 20px 30px 10px 0;
+        &::before{
+          content: none;
+        }
+        h1{
+          font-size: 42px;
+        }
+        .btn{
+          display: none;
+        }
+      }
+      .desc{
+        p{
+          font-weight: 500;
+        }
+        .btn{
+          display: inline-block;
+        }
+      }
+      
+    }
+    .img-section{
+      width:46%;
+    }
+
+  }
+  @include media-breakpoint-up(xl){
+    .content{
+      width: 48%;
+      padding: 160px 30px 80px 100px;
+      .title h1{
+        font-size: 50px;
+      }
+    }
+    .img-section{
+      width:52%;
+    }
+  }
+}
+
+//common heading
+
+.icon-heading{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin:0 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 20px;
+  .box{
+    display: block;
+    width:25px;
+    height: 25px;
+    flex-shrink: 0;
+    margin: 10px;
+    position: relative;
+    &::after,&::before{
+      content:'';
+      position: absolute;
+      background-color: $white;
+    }
+    &::after{
+      top: 50%;
+      left:0;
+      width: 100%;
+      height:2px;
+      transform: translateY(-50%);
+    }
+    &::before{
+      left:50%;
+      top:0;
+      height: 100%;
+      width: 2px;
+      transform: translateX(-50%);
+    }
+  }
+  @include media-breakpoint-up(sm){
+    font-size: 26px;
+    .box{
+      width:30px;
+      height: 30px;
+      margin: 10px 20px;
+    }
+  }
+}
+
+//image full cover class
+.img-cover{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+//home portfolio section
+
+.portfolio{
+  padding: 60px 15px;
+  .portfolio-holder{
+    margin:0 0 20px;
+    h6{
+      color:$secondary;
+      font-weight: 600;
+    }
+    .img-holder{
+      padding-top: 110%;
+      position: relative;
+      overflow: hidden;
+      min-height: 1px;
+    }
+  }
+}
+
+//home about
+
+.about{
+  padding-top:80px;
+  background-color: $primary;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .img-section{
+    width:100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    min-height: 600px;
+    position: relative;
+    &::before{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left:0;
+      top:20px;
+      width:20px;
+      background-color: $primary;
+    }
+  }
+  .content{
+    width:100%;
+    background-color: $white;
+    padding: 30px 25px;
+    .title{
+      background-color: $white;
+      h3{
+        font-size: 40px;
+        font-weight: 600;
+      }
+    }
+    .list{
+      list-style-type: disc;
+      padding-left: 40px;
+    }
+  }
+  @include media-breakpoint-down(md){
+    padding-top: 120px;
+    .icon-heading {
+      position: absolute;
+      top:45px;
+      left:0;
+      width: 100%;
+      .box{
+        background-color: $white !important;
+        &::before,&::after{
+          background-color: $primary;
+        }
+      }
+      .heading{
+        color:$white !important;
+      }
+    }
+  }
+  @include media-breakpoint-up(md){
+    flex-direction: row;
+    .content{
+      width: 40%;
+    }
+    .img-section{
+      width: 60%;
+      min-height: 400px;
+      
+    }
+  }
+  @include media-breakpoint-up(lg){
+    .img-section{
+      background-position: top right;
+      &::before{
+        content: none;
+      }
+    }
+    .content{
+      .title{
+        margin: 50px 0 -10px -120px;
+        padding: 40px 20px 40px 35px;
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+//home client
+
+.clients{
+  display: flex;
+  flex-direction: column;
+  background-color: $secondary;
+  position: relative;
+  padding-top: 120px;
+  &::before{
+    content:'';
+    position: absolute;
+    width:235px;
+    height: 200px;
+    left:0;
+    top:120px;
+    background-image: url('./../images/quote.png');
+    background-repeat: no-repeat;
+    background-size: 235px 190px;
+  }
+  .content{
+    width: 100%;
+    padding:40px 15px;
+    background-color: $white;
+    .icon-heading {
+      margin: 0;
+      .box{
+        background-color: $white !important;
+        &::before,&::after{
+          background-color: $secondary;
+        }
+      }
+      .heading{
+        color:$white !important;
+      }
+    }
+    .clients-container{
+      position: relative;
+      z-index: 0;
+    }
+    .client-holder{
+      padding: 10px 20px;
+      margin-bottom: 40px;
+      border-left: 10px solid $primary;
+      &:first-child{
+        margin-top: 25px;
+      }
+      &:last-child{
+        margin-bottom: 0;
+      }
+      p{
+        margin: 0;
+      }
+    }
+    
+  }
+  .img-section{
+    width:40%;
+    background-color: $secondary;
+  }
+  @include media-breakpoint-down(md){
+    .content .icon-heading{
+      position: absolute;
+      top:55px;
+      left:0;
+      width: 100%;
+      padding: 0 10px;
+      transform: translateY(-50%);
+    }
+  }
+  @include media-breakpoint-up(md){
+    .content{
+      padding: 60px 70px;
+    }
+  }
+  @include media-breakpoint-up(lg){
+    flex-direction: row;
+    padding-top:0px;
+    background-color: $white;
+    &::before{
+      content: none;
+    }
+    .content{
+      width:60%;
+      .icon-heading{
+        display: inline-flex;
+        margin: 10px 0 30px;
+        position: relative;
+        z-index: 0;
+        &::before{
+          content:'';
+          position: absolute;
+          width:235px;
+          height: 200px;
+          z-index: -1;
+          left:0;
+          top:-40px;
+          background-image: url('./../images/quote.png');
+          background-repeat: no-repeat;
+          background-size: 235px 190px;
+        }
+        .box{
+          background-color: $primary !important;
+          &::before,&::after{
+            background-color: $white;
+          }
+        }
+        .heading{
+          color:$primary !important;
+        }
+      }
+      
+    }
+  }
+  @include media-breakpoint-up(xl){
+    .content{
+      padding: 60px 100px;
+    }
+  }
+}
+
+
+//home contact
+
+.contact{
+  padding: 40px 20px;
+  position: relative;
+  border-top: 20px solid $secondary;
+  .icon-heading{
+    margin-bottom: 50px;
+  }
+  .desc-col{
+    display: none;
+  }
+  .contact-logo{
+    max-width: 120px;
+    margin:0 0 15px;
+    a{
+      display: block;
+    }
+    img{
+      display: block;
+      max-width: 100%;;
+    }
+  }
+  .form-group{
+    label{
+      margin-left: 20px;
+    }
+    .form-control{
+      border-radius: 0;
+      background-color: #f8f8f8;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  @include media-breakpoint-up(lg){
+    padding: 60px 100px;
+    border-right: 20px solid $secondary;
+    border-top: none;
+    &::after{
+      content:'';
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 60%;
+      height:20px;
+      background-color: $secondary;
+    }
+    .desc-col{
+      display: block;
+    }
+  }
+}
+
+
+
+//portfolio page styling
+
+.portfolio-summary{
+  padding: 40px 0 0;
+  .container{
+    max-width: 1140px;
+  }
+  .portfolio-summary-row{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 20px solid $secondary;
+    margin: 0 0 20px;
+    .main-img{
+      padding-bottom: 55%;
+      position: relative;
+      margin: 0 0 20px;
+    }
+    .desc{
+      padding: 0 0 15px;
+      h3{
+        font-size: 22px;
+        font-weight: 600;
+      }
+      p{
+        font-size: 13px;
+      }
+      ul{
+        list-style: disc;
+        padding-left: 20px;
+        font-size: 15px;
+      }
+    }
+  }
+  .images-gallery .img-holder {
+    padding-bottom: 70%;
+    position: relative;
+    margin: 0 0 20px;
+  }
+  .back-btn {
+    margin-bottom: 15px;
+    button{
+      background-color: transparent;
+      border: none;
+      color:$secondary;
+      text-align: right;
+      padding:0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-weight: 500;
+      line-height: 1.2;
+      font-size: 14px;
+      outline: none;
+      width:50px;
+    }
+  }
+  
+  
+  @include media-breakpoint-up(md){
+    padding: 40px 0 0;
+    .portfolio-summary-row{
+      flex-direction: row;
+      padding: 0;
+      .main-img{
+        width:55%;
+        padding-bottom: 0;
+        margin: 0;
+      }
+      .desc{
+        width:45%;
+        padding:0 30px 20px;
+        h3{
+          font-size: 28px;
+        }
+        ul{
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  @include media-breakpoint-up(xl){
+    .desc-container{
+      padding:0 70px;
+      position: relative;
+    }
+    .back-btn{
+      position: absolute;
+      left:0;
+      top:0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.portfolio-filters{
+  padding: 40px 0px;
+  .filters{
+    text-align: center;
+    ul{
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 -5px;
+      li{
+        padding: 0 5px;
+        button{
+          background-color: transparent;
+          border:none;
+          color:$secondary;
+          padding: 0 0 0 10px;
+          cursor: pointer;
+          line-height: 1.7;
+          outline: none;
+          position: relative;
+          font-weight: 500;
+          font-size: 14px;
+          border-left:3px solid transparent;
+          &.active{
+            border-left:3px solid $primary;
+            color:$primary;
+          }
+        }
+      }
+    }
+  }
+  .portfolio-container{
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .portfolio-wrapper{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin:0 0 20px;
+    .img-holder{
+      padding-top: 115%;
+      position: relative;
+      overflow: hidden;
+      min-height: 1px;
+      .decription{
+        position: absolute;
+        bottom: 0;
+        left:0;
+        width: 100%;
+        z-index: 1;
+        border-left: 20px solid $primary;
+        padding: 20px;
+        background-color: rgba($secondary,0.5);
+        color:$white;
+        min-height: 140px;
+        h5{
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 1.3;
+          margin: 0;
+        }
+        .sub-heading{
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 1.3;
+        }
+        p{
+          font-size: 10px;
+          line-height: 1.3;
+          margin: 13px 0 0;
+        }
+      }
+    }
+    
+  }
+  @include media-breakpoint-up(sm){
+    .filters{
+      ul{
+        margin: 0 -15px;
+        li{
+          padding: 0 15px;
+        }
+      }
+    }
+  }
+  @include media-breakpoint-up(lg){
+    padding: 60px 0px;
+    .filters{
+      ul{
+        margin: 0 -20px;
+        li{
+          padding: 0 20px;
+        }
+      }
+    }
+  }
+}
+
+.portfolio-contact{
+  @include media-breakpoint-up(lg){
+    &::after{
+      width: 30%;
+    }
+  }
+}
