@@ -72,6 +72,13 @@ body {
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
+.contact .form-group .form-control {
+  border-radius: 0;
+  background-color: #f8f8f8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100% !important;
+}
 
 hr {
   box-sizing: content-box;

@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import logo from '../../assets/images/logo1.png';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/images/logo1.png';
 import bluePhone from '../../assets/images/phone-blue.png';
 import BannerImage from '../../assets/images/banner.jpg';
 import phoneWhite from '../../assets/images/phone-white.png';
@@ -24,7 +24,7 @@ export default function HomePage() {
     <nav>
       <ul className="navigation">
         <li className="logo">
-          <a className="link" href="#"><img src={logo} alt="logo" /></a>
+          <Link className="link" to="/"><img src={logo} alt="logo" /></Link>
         </li>
         <li>
           <a className="link" href="#portfolio">Portfolio</a>
@@ -54,7 +54,7 @@ export default function HomePage() {
           <h1>
             <span className="text-primary">VISIONARY CONSTRUCTION</span> <span className="text-secondary">EXCLUSIVE QUALITY</span>
           </h1>
-          <button type="button" className="btn btn-primary"><Link to="/detail-page" style={{color: 'white'}}>View Portfolio</Link></button>
+          <button type="button" className="btn btn-primary"><Link to="/detail-page?action_type=view-portfolio" style={{color: 'white'}}>View Portfolio</Link></button>
         </div>
         <div className="desc py-5 py-lg-0">
           <p className="mb-5">Experience and expertise to take you from concept to completion. Our business philosophy is simple: operate with transparency, hire good people and pay attention to the details.
@@ -69,7 +69,7 @@ export default function HomePage() {
               <div>sunroadconstruction@gmail.com</div>
             </div>
           </div>
-          <button type="button" className="btn btn-primary mt-5"><Link to="/detail-page" style={{color: 'white'}}>View Portfolio</Link></button>
+          <button type="button" className="btn btn-primary mt-5"><Link to="/detail-page?action_type=view-portfolio" style={{color: 'white'}}>View Portfolio</Link></button>
         </div>
       </div>
       <div className="img-section" style={{backgroundImage: `url(${BannerImage})`}}>
@@ -85,24 +85,30 @@ export default function HomePage() {
           <div className="col-12 col-md-6 col-lg-4 portfolio-holder">
             <h6>Constructions</h6>
             <div className="img-holder">
+              <Link to="/detail-page?action_type=inside-details">
               <img className="img-cover" src={portfolioImage1} />
+              </Link>
             </div>
           </div>
           <div className="col-12 col-md-6 col-lg-4 portfolio-holder">
             <h6>Floors</h6>
             <div className="img-holder">
+              <Link to="/detail-page?action_type=inside-details">
               <img className="img-cover" src={portfolioImage2} />
+              </Link>
             </div>
           </div>
           <div className="col-12 col-md-6 col-lg-4 portfolio-holder">
             <h6>Remodeling</h6>
             <div className="img-holder">
+              <Link to="/detail-page?action_type=inside-details">
               <img className="img-cover" src={portfolioImage3} />
+              </Link>
             </div>
           </div>
         </div>
         <div className="text-center">
-          <button type="button" className="btn btn-primary"><Link to="/detail-page" style={{color: 'white'}}>View Portfolio</Link></button>
+          <button type="button" className="btn btn-primary"><Link to="/detail-page?action_type=view-portfolio" style={{color: 'white'}}>View Portfolio</Link></button>
         </div>
       </div>
     </section>
