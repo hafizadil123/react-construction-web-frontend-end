@@ -8690,7 +8690,6 @@ img {
   }
   .about .img-section {
     width: 60%;
-    min-height: 400px;
   }
 }
 @media (min-width: 992px) {
@@ -9081,4 +9080,22 @@ footer p {
   margin: 0;
 }
 
+@media (min-width: 1367px) {
+  .about .content {
+    width: 45%;
+  }
+  .about .img-section {
+    width: 55%;
+    min-height: 650px;
+  }
+}
+
+@media (min-width: 1367px) {
+  .clients .content {
+    width: 55%;
+  }
+  .clients .img-section{
+    width: 45%;
+  }
+}
 /*# sourceMappingURL=main.css.map */

@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PhoneInput from 'react-phone-input-2';
 import logo from '../../assets/images/logo1.png';
 import bluePhone from '../../assets/images/phone-blue.png';
 import BannerImage from '../../assets/images/banner.jpg';
@@ -15,7 +16,6 @@ import portfolioImage1 from '../../assets/images/portfolio-1.jpg';
 import portfolioImage2 from '../../assets/images/portfolio-2.jpg';
 import portfolioImage3 from '../../assets/images/portfolio-3.jpg';
 import AboutMeImage from '../../assets/images/Elias.jpg';
-import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
 export default function HomePage() {
