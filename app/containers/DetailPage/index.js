@@ -197,7 +197,7 @@ export function DetailPage({ dispatch }) {
                       value={value}
                       onChange={setValue}
                       onlyCountries={['us', 'ca']}
-                      masks={'(...) ..-..-..'}
+                      masks="(...) ..-..-.."
                     />
                   </div>
                   <div className="form-group">
