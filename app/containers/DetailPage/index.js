@@ -20,93 +20,114 @@ import saga from './saga';
 import logo from '../../assets/images/logo1.png';
 import 'react-phone-input-2/lib/style.css';
 import ContactUs from '../../components/contactUs';
-
+import {
+  CONTENTFUL_ACCESS_TOKEN,
+  CONTENTFUL_SPACE_ID,
+  CONTENTFUL_ENV,
+  CONTENTFUL_ENTRY_ID,
+} from '../../utils/constants';
 import bluePhone from '../../assets/images/phone-blue.png';
 import InsideDetailpage from '../../components/InsideDetailPage';
 import PortfolioSection from '../../components/PortfolioSection';
-import portfolioImage1 from '../../assets/images/portfolio-1.jpg';
-import portfolioImage2 from '../../assets/images/portfolio-2.jpg';
-import portfolioImage3 from '../../assets/images/portfolio-3.jpg';
 import AboutUs from '../../components/AboutUs';
+const contentful = require('contentful');
 export function DetailPage({ dispatch }) {
+  const [data, setData] = useState({});
+  const [detailData, setDetailData] = useState({});
+  const [allData, setAllData] = useState();
   useInjectReducer({ key: 'detailPage', reducer });
-  const [images, setImages] = useState([
-    portfolioImage1,
-    portfolioImage2,
-    portfolioImage3,
-    portfolioImage2,
-    portfolioImage3,
-    portfolioImage1,
-    portfolioImage2,
-    portfolioImage3,
-    portfolioImage1,
-  ]);
-  const [value, setValue] = useState();
+  const client = contentful.createClient({
+    // This is the space ID. A space is like a project folder in Contentful terms
+    space: CONTENTFUL_SPACE_ID,
+    // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+    accessToken: CONTENTFUL_ACCESS_TOKEN,
+    environment: CONTENTFUL_ENV,
+  });
+
+  const filterImagesFromContentfulData = data => {
+    const filterImages =
+      data &&
+      data.length > 0 &&
+      data.map(item => {
+        const mapImages = {
+          meta: item.fields,
+        };
+        return mapImages;
+      });
+    const filteredArray =
+      filterImages &&
+      filterImages.length > 0 &&
+      filterImages.map(item =>
+        item.meta.images.map(el => {
+          const mappedObject = {
+            url: el.fields && el.fields.file.url,
+            title: el.fields && el.fields.title,
+            description: el.fields && el.fields.description,
+            otherInfo: item.meta,
+          };
+
+          return mappedObject;
+        }),
+      );
+    return filteredArray;
+  };
+  useEffect(() => {
+    client
+      .getEntry(CONTENTFUL_ENTRY_ID)
+      .then(entry => {
+        const { fields } = entry || {};
+        setData(fields);
+      })
+      .catch(err => console.log(err));
+  }, []);
+  useEffect(() => {
+    client
+      .getEntry('5hQuA3Yn57RWghqe75ztMa')
+      .then(entry => {
+        const { fields } = entry || {};
+
+        const { allType, constructionType, floorType, remodeling } =
+          fields || {};
+        const filterData = {
+          allType,
+          constructionType,
+          floorType,
+          remodeling,
+        };
+        setDetailData(filterImagesFromContentfulData(filterData[categoryType]));
+        setAllData(fields);
+      })
+      .catch(err => console.log(err));
+  }, []);
 
   useInjectSaga({ key: 'detailPage', saga });
-  console.log('dispacth', dispatch);
   const {
     location: { search },
   } = history || {};
   const actionType = queryString.parse(search).action_type;
+  const categoryType = queryString.parse(search).type;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const filterImagebyCategory = val => {
-    console.log('val', val);
     switch (val) {
-      case 'contruction':
-        setImages([
-          portfolioImage3,
-          portfolioImage2,
-          portfolioImage1,
-          portfolioImage2,
-          portfolioImage3,
-          portfolioImage1,
-          portfolioImage3,
-          portfolioImage2,
-          portfolioImage1,
-        ]);
+      case 'constructionType':
+        setDetailData(filterImagesFromContentfulData(allData.constructionType));
         break;
-      case 'floor':
-        setImages([
-          portfolioImage1,
-          portfolioImage2,
-          portfolioImage3,
-          portfolioImage2,
-          portfolioImage3,
-          portfolioImage1,
-          portfolioImage2,
-          portfolioImage3,
-          portfolioImage1,
-        ]);
+      case 'floorType':
+        setDetailData(filterImagesFromContentfulData(allData.floorType));
+
         break;
       case 'remodeling':
-        setImages([
-          portfolioImage3,
-          portfolioImage2,
-          portfolioImage1,
-          portfolioImage2,
-          portfolioImage3,
-          portfolioImage1,
-          portfolioImage3,
-          portfolioImage2,
-          portfolioImage1,
-        ]);
+        setDetailData(filterImagesFromContentfulData(allData.remodeling));
+        break;
+      case 'allType':
+        setDetailData(filterImagesFromContentfulData(allData.allType));
         break;
       default:
-        return [
-          portfolioImage1,
-          portfolioImage2,
-          portfolioImage3,
-          portfolioImage2,
-          portfolioImage3,
-          portfolioImage1,
-          portfolioImage2,
-          portfolioImage3,
-          portfolioImage1,
-        ];
+        return [];
     }
+    return null;
   };
   const renderOnActionType = type => {
     switch (type) {
@@ -115,8 +136,10 @@ export function DetailPage({ dispatch }) {
       case 'view-portfolio':
         return (
           <PortfolioSection
-            images={images}
+            detailData={detailData}
             filterImagebyCategory={val => filterImagebyCategory(val)}
+            categoryType={categoryType}
+            title="Portfolio"
           />
         );
       default:
@@ -164,8 +187,8 @@ export function DetailPage({ dispatch }) {
         </header>
         <main className="portfolio-main">
           {renderOnActionType(actionType)}
-          <AboutUs />
-          <ContactUs />
+          <AboutUs data={data} />
+          <ContactUs data={data} />
         </main>
         <footer>
           <p>© Copyright 2021 | SunRoad Construction | All rights reserved</p>

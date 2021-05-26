@@ -1,27 +1,43 @@
 /* eslint-disable no-fallthrough */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import DetailPage from '../InsideDetailPage';
-const PortfolioSection = ({ images, filterImagebyCategory }) => {
+const PortfolioSection = ({
+  detailData,
+  filterImagebyCategory,
+  title,
+  categoryType,
+}) => {
   const [showDetail, setShowDetail] = useState(false);
-
+  const [data, setData] = useState(false);
+  const [type, setType] = useState(categoryType || 'allType');
+  console.log('addd', detailData);
+  const showDetailPage = (val, dataObj) => {
+    setShowDetail(val);
+    setData(dataObj);
+  };
+  const updateCategoryByClick = type => {
+    filterImagebyCategory(type);
+    setType(type);
+  };
   return (
     <>
       {showDetail ? (
-        <DetailPage showDetail={val => setShowDetail(val)} />
+        <DetailPage showDetail={val => setShowDetail(val)} data={data} />
       ) : (
         <section className="portfolio-filters" id="portfolio">
           <div className="container">
             <h2 className="icon-heading">
               <span className="box bg-secondary" />
-              <span className="heading text-secondary">Portfolio</span>
+              <span className="heading text-secondary">{title}</span>
             </h2>
             <div className="filters">
               <ul>
                 <li>
                   <button
-                    className="active"
+                    className={type === 'allType' ? `active` : ''}
                     type="button"
-                    onClick={() => filterImagebyCategory('all')}
+                    onClick={() => updateCategoryByClick('allType')}
                   >
                     All
                   </button>
@@ -29,8 +45,9 @@ const PortfolioSection = ({ images, filterImagebyCategory }) => {
                 <li>
                   <button
                     type="button"
+                    className={type === 'constructionType' ? `active` : ''}
                     value="contruction"
-                    onClick={() => filterImagebyCategory('contruction')}
+                    onClick={() => updateCategoryByClick('constructionType')}
                   >
                     Construction
                   </button>
@@ -38,8 +55,9 @@ const PortfolioSection = ({ images, filterImagebyCategory }) => {
                 <li>
                   <button
                     type="button"
+                    className={type === 'floorType' ? `active` : ''}
                     value="floor"
-                    onClick={() => filterImagebyCategory('floor')}
+                    onClick={() => updateCategoryByClick('floorType')}
                   >
                     Floors
                   </button>
@@ -48,7 +66,8 @@ const PortfolioSection = ({ images, filterImagebyCategory }) => {
                   <button
                     type="button"
                     value="remodeling"
-                    onClick={() => filterImagebyCategory('remodeling')}
+                    className={type === 'remodeling' ? `active` : ''}
+                    onClick={() => updateCategoryByClick('remodeling')}
                   >
                     Remodeling
                   </button>
@@ -56,21 +75,25 @@ const PortfolioSection = ({ images, filterImagebyCategory }) => {
               </ul>
             </div>
             <div className="row pt-4 portfolio-container">
-              {images &&
-                images.map(item => (
+              {detailData &&
+                detailData.length > 0 &&
+                detailData.map(item => (
                   <div className="col-12 col-sm-6 col-lg-4 portfolio-wrapper">
                     <div
                       className="img-holder"
-                      onClick={() => setShowDetail(true)}
+                      onClick={() => showDetailPage(true, item)}
                     >
-                      <img className="img-cover" src={item} />
+                      <img className="img-cover" src={item[0].url} />
                       <div className="decription">
-                        <h5>Custom New Build</h5>
-                        <div className="sub-heading">3,936 sq ft</div>
-                        <div className="sub-heading">4 bedroom | 4 bath</div>
-                        <p>
-                          Architecture + Interior: Scott &amp; Scott Architects
-                        </p>
+                        <h5>{item[0].otherInfo.projectName}</h5>
+                        <div className="sub-heading">
+                          {item[0].otherInfo.sqrft} sq ft
+                        </div>
+                        <div className="sub-heading">
+                          {item[0].otherInfo.bedroom} bedroom |{' '}
+                          {item[0].otherInfo.bathrooms} bath
+                        </div>
+                        <p>{item[0].otherInfo.shortDescription}</p>
                       </div>
                     </div>
                   </div>
@@ -81,5 +104,11 @@ const PortfolioSection = ({ images, filterImagebyCategory }) => {
       )}
     </>
   );
+};
+
+PortfolioSection.propTypes = {
+  detailData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filterImagebyCategory: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
 };
 export default PortfolioSection;

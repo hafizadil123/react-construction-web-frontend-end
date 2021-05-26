@@ -11,13 +11,14 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import Routes from '../../routes/routes';
 import GlobalStyle from '../../global-styles';
-
+// Import root app
 export default function App() {
   return (
     <div>
       <Switch>
         <Routes />
       </Switch>
+
       <GlobalStyle />
     </div>
   );

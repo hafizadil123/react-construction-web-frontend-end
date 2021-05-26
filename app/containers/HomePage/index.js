@@ -5,19 +5,40 @@
  *
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
 import logo from '../../assets/images/logo1.png';
 import bluePhone from '../../assets/images/phone-blue.png';
-import BannerImage from '../../assets/images/banner.jpg';
 import phoneWhite from '../../assets/images/phone-white.png';
-import portfolioImage1 from '../../assets/images/portfolio-1.jpg';
-import portfolioImage2 from '../../assets/images/portfolio-2.jpg';
-import portfolioImage3 from '../../assets/images/portfolio-3.jpg';
+import {
+  CONTENTFUL_ACCESS_TOKEN,
+  CONTENTFUL_SPACE_ID,
+  CONTENTFUL_ENV,
+  CONTENTFUL_ENTRY_ID,
+} from '../../utils/constants';
 import AboutUs from '../../components/AboutUs';
 import ContactUs from '../../components/contactUs';
+const contentful = require('contentful');
+
 export default function HomePage() {
+  const [data, setData] = useState({});
+  const client = contentful.createClient({
+    // This is the space ID. A space is like a project folder in Contentful terms
+    space: CONTENTFUL_SPACE_ID,
+    // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+    accessToken: CONTENTFUL_ACCESS_TOKEN,
+    environment: CONTENTFUL_ENV,
+  });
+  useEffect(() => {
+    client
+      .getEntry(CONTENTFUL_ENTRY_ID)
+      .then(entry => {
+        const { fields } = entry || {};
+        setData(fields);
+        console.log(fields);
+      })
+      .catch(err => console.log(err));
+  }, []);
   return (
     <>
       <div id="wrapper">
@@ -59,13 +80,22 @@ export default function HomePage() {
         <main>
           <section
             className="hero"
-            style={{ backgroundImage: `url(${BannerImage})` }}
+            style={{
+              backgroundImage: `url(${data &&
+                data.mainCoverPicture &&
+                data.mainCoverPicture.fields &&
+                data.mainCoverPicture.fields.file.url})`,
+            }}
           >
             <div className="content">
               <div className="title">
                 <h1>
-                  <span className="text-primary">VISIONARY CONSTRUCTION</span>{' '}
-                  <span className="text-secondary">EXCLUSIVE QUALITY</span>
+                  <span className="text-primary">
+                    {data && data.mainHeading}
+                  </span>{' '}
+                  <span className="text-secondary">
+                    {data && data.mainSubHeading}
+                  </span>
                 </h1>
                 <button type="button" className="btn btn-primary">
                   <Link
@@ -77,12 +107,7 @@ export default function HomePage() {
                 </button>
               </div>
               <div className="desc py-5 py-lg-0">
-                <p className="mb-5">
-                  Experience and expertise to take you from concept to
-                  completion. Our business philosophy is simple: operate with
-                  transparency, hire good people and pay attention to the
-                  details.
-                </p>
+                <p className="mb-5">{data && data.mainDescription}</p>
                 <div className="d-flex flex-column flex-lg-row align-items-center align-items-lg-start contact-details">
                   <div className="mr-md-4">
                     <img
@@ -97,8 +122,8 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="details">
-                    <div>(555)555-5555</div>
-                    <div>sunroadconstruction@gmail.com</div>
+                    <div>{data && data.phoneNumber}</div>
+                    <div>{data && data.email}</div>
                   </div>
                 </div>
                 <button type="button" className="btn btn-primary mt-5">
@@ -113,37 +138,68 @@ export default function HomePage() {
             </div>
             <div
               className="img-section"
-              style={{ backgroundImage: `url(${BannerImage})` }}
+              style={{
+                backgroundImage: `url(${data &&
+                  data.mainCoverPicture &&
+                  data.mainCoverPicture.fields &&
+                  data.mainCoverPicture.fields.file.url})`,
+              }}
             />
           </section>
           <section className="portfolio" id="portfolio">
             <div className="container">
               <h2 className="icon-heading">
                 <span className="box bg-secondary" />
-                <span className="heading text-secondary">My Portfolio</span>
+                <span className="heading text-secondary">
+                  {data && data.portfolioHeading}
+                </span>
               </h2>
               <div className="row py-4">
                 <div className="col-12 col-md-6 col-lg-4 portfolio-holder">
-                  <h6>Constructions</h6>
+                  <h6>{data && data.categoryOne}</h6>
                   <div className="img-holder">
-                    <Link to="/detail-page?action_type=view-portfolio">
-                      <img className="img-cover" src={portfolioImage1} />
+                    <Link to="/detail-page?action_type=view-portfolio&type=constructionType">
+                      <img
+                        className="img-cover"
+                        src={
+                          data &&
+                          data.categoryOneImage &&
+                          data.categoryOneImage.fields &&
+                          data.categoryOneImage.fields.file.url
+                        }
+                      />
                     </Link>
                   </div>
                 </div>
                 <div className="col-12 col-md-6 col-lg-4 portfolio-holder">
-                  <h6>Floors</h6>
+                  <h6>{data && data.categoryTwo}</h6>
                   <div className="img-holder">
-                    <Link to="/detail-page?action_type=view-portfolio">
-                      <img className="img-cover" src={portfolioImage2} />
+                    <Link to="/detail-page?action_type=view-portfolio&type=floorType">
+                      <img
+                        className="img-cover"
+                        src={
+                          data &&
+                          data.categoryTwoImage &&
+                          data.categoryTwoImage.fields &&
+                          data.categoryTwoImage.fields.file.url
+                        }
+                      />
                     </Link>
                   </div>
                 </div>
                 <div className="col-12 col-md-6 col-lg-4 portfolio-holder">
-                  <h6>Remodeling</h6>
+                  <h6>{data && data.categoryThree}</h6>
                   <div className="img-holder">
-                    <Link to="/detail-page?action_type=view-portfolio">
-                      <img className="img-cover" src={portfolioImage3} />
+                    <Link to="/detail-page?action_type=view-portfolio&type=remodeling">
+                      <img
+                        className="img-cover"
+                        src={
+                          data &&
+                          data.categoryThreeImage &&
+                          data.categoryThreeImage.fields &&
+                          data.categoryThreeImage.fields.file.url
+                        }
+                      />
                     </Link>
                   </div>
                 </div>
@@ -160,8 +216,8 @@ export default function HomePage() {
               </div>
             </div>
           </section>
-          <AboutUs />
-          <ContactUs />
+          <AboutUs data={data} />
+          <ContactUs data={data} />
         </main>
         <footer>
           <p>© Copyright 2021 | SunRoad Construction | All rights reserved</p>

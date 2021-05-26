@@ -1,16 +1,23 @@
 import React from 'react';
-import AboutMeImage from '../../assets/images/Elias.jpg';
-const AboutUs = () => (
+
+const AboutUs = ({ data }) => (
   <>
     <section className="about" id="about">
       <div
         className="img-section"
-        style={{ backgroundImage: `url(${AboutMeImage})` }}
+        style={{
+          backgroundImage: `url(${data &&
+            data.aboutMeImage &&
+            data.aboutMeImage.fields &&
+            data.aboutMeImage.fields.file.url})`,
+        }}
       />
       <div className="content">
         <h2 className="icon-heading">
           <span className="box bg-primary" />
-          <span className="heading text-primary">About Me</span>
+          <span className="heading text-primary">
+            {data && data.aboutMeText}
+          </span>
         </h2>
         <div className="title">
           <h3>Elias Uribe</h3>
@@ -36,7 +43,9 @@ const AboutUs = () => (
         <div className="text-center">
           <h2 className="icon-heading">
             <span className="box bg-primary" />
-            <span className="heading text-primary">What my Clients say</span>
+            <span className="heading text-primary">
+              {data && data.whatMyClientsSay}
+            </span>
           </h2>
         </div>
         <div className="clients-container">

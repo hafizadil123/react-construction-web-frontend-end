@@ -18,7 +18,6 @@ import 'sanitize.css/sanitize.css';
 import './assets/css/main.css';
 import './assets/js/main';
 
-// Import root app
 import App from 'containers/App';
 
 // Import Language Provider
