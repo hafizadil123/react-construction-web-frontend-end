@@ -11,7 +11,7 @@
     "node": ">=8.15.1"
   },
   "author": "Max Stoiber",
-  "license": "MIT",
+  "license": "MIT 1",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
