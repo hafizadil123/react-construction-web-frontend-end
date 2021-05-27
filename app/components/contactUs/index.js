@@ -11,7 +11,7 @@ const ContactUs = ({ data }) => {
   const [value, setValue] = useState('');
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
-  const apiURL = 'http://localhost:5000/api/v1/users/send-email';
+  const apiURL = 'https://aqueous-thicket-70637.herokuapp.com/user/send-email';
   const contactUsSchema = Yup.object().shape({
     name: Yup.string()
       .min(2, 'Too Short!')
