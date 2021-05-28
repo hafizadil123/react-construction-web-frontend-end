@@ -99,7 +99,7 @@ export default function HomePage() {
                 </h1>
                 <button type="button" className="btn btn-primary">
                   <Link
-                    to="/detail-page?action_type=view-portfolio"
+                    to="/detail-page?action_type=view-portfolio&type=allType"
                     style={{ color: 'white' }}
                   >
                     View Portfolio
@@ -128,7 +128,7 @@ export default function HomePage() {
                 </div>
                 <button type="button" className="btn btn-primary mt-5">
                   <Link
-                    to="/detail-page?action_type=view-portfolio"
+                    to="/detail-page?action_type=view-portfolio&type=allType"
                     style={{ color: 'white' }}
                   >
                     View Portfolio
@@ -207,7 +207,7 @@ export default function HomePage() {
               <div className="text-center">
                 <button type="button" className="btn btn-primary">
                   <Link
-                    to="/detail-page?action_type=view-portfolio"
+                    to="/detail-page?action_type=view-portfolio&type=allType"
                     style={{ color: 'white' }}
                   >
                     View Portfolio
