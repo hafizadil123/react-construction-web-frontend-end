@@ -30,6 +30,9 @@ export default function HomePage() {
     environment: CONTENTFUL_ENV,
   });
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
     client
       .getEntry(CONTENTFUL_ENTRY_ID)
       .then(entry => {
@@ -47,7 +50,10 @@ export default function HomePage() {
             <ul className="navigation">
               <li className="logo">
                 <Link className="link" to="/">
-                  <img src={logo} alt="logo" />
+                  <img
+                    src={data && data.logo && data.logo.fields.file.url}
+                    alt="logo"
+                  />
                 </Link>
               </li>
               <li>
@@ -71,8 +77,8 @@ export default function HomePage() {
                 <img src={bluePhone} alt="phone-image" />
               </div>
               <div className="details">
-                <span className="number">(555)555-5555</span>
-                <span>sunroadconstruction@gmail.com</span>
+                <div>{data && data.phoneNumber}</div>
+                <div>{data && data.email}</div>
               </div>
             </div>
           </nav>

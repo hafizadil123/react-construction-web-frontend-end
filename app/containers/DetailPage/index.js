@@ -99,7 +99,7 @@ export function DetailPage({ dispatch }) {
       })
       .catch(err => console.log(err));
   }, []);
-
+  console.log('addd', allData);
   useInjectSaga({ key: 'detailPage', saga });
   const {
     location: { search },
@@ -155,7 +155,12 @@ export function DetailPage({ dispatch }) {
             <ul className="navigation">
               <li className="logo">
                 <Link className="link" to="/">
-                  <img src={logo} alt="logo" />
+                  <img
+                    src={
+                      allData && allData.logo && allData.logo.fields.file.url
+                    }
+                    alt="logo"
+                  />
                 </Link>
               </li>
               <li>
@@ -179,8 +184,8 @@ export function DetailPage({ dispatch }) {
                 <img src={bluePhone} alt="phone-image" />
               </div>
               <div className="details">
-                <span className="number">(555)555-5555</span>
-                <span> sunroadconstruction@gmail.com</span>
+                <span className="number">{allData && allData.phoneNumber}</span>
+                <span> {allData && allData.email}</span>
               </div>
             </div>
           </nav>

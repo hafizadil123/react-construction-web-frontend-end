@@ -11,7 +11,7 @@ const PortfolioSection = ({
   const [showDetail, setShowDetail] = useState(false);
   const [data, setData] = useState(false);
   const [type, setType] = useState(categoryType || 'allType');
-  console.log('addd', detailData);
+
   const showDetailPage = (val, dataObj) => {
     setShowDetail(val);
     setData(dataObj);
