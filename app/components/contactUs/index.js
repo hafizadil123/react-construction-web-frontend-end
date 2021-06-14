@@ -57,14 +57,6 @@ const ContactUs = ({ data }) => {
                 <img src={logo} alt="logo" />
               </Link>
             </div>
-            <p>
-              “JOGeneral Contractor | Project Management
-              <br />
-              Construction Management
-              <br />
-              Consistently exceeding our clients’ <br />
-              expectations for service, quality and value.”
-            </p>
           </div>
           <div className="col-12 col-lg-6">
             <Formik
@@ -109,14 +101,18 @@ const ContactUs = ({ data }) => {
                     </div>
                   )}
                   <div className="form-group">
-                    <label htmlFor="name">Your name</label>
+                    <label className="font-size-lg" htmlFor="name">
+                      Your name
+                    </label>
                     <Field name="name" className="form-control" type="text" />
                     {errors.name && touched.name ? (
                       <div style={{ color: 'red' }}>{errors.name}</div>
                     ) : null}
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="number">Your phone number</label>
+                  <div className="form-group font-size-lg">
+                    <label className="font-size-lg" htmlFor="number">
+                      Your phone number
+                    </label>
                     <PhoneInput
                       inputProps={{
                         name: 'phoneNumber',
@@ -130,15 +126,19 @@ const ContactUs = ({ data }) => {
                       masks="(...) ..-..-.."
                     />
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="email">Email</label>
+                  <div className="form-group font-size-lg">
+                    <label className="font-size-lg" htmlFor="email">
+                      Email
+                    </label>
                     <Field name="email" className="form-control" type="email" />
                     {errors.email && touched.email ? (
                       <div style={{ color: 'red' }}>{errors.email}</div>
                     ) : null}
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="message">Message</label>
+                  <div className="form-group font-size-lg">
+                    <label className="font-size-lg" htmlFor="message">
+                      Message
+                    </label>
                     <Field
                       name="message"
                       as="textarea"

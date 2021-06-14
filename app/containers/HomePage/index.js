@@ -103,7 +103,7 @@ export default function HomePage() {
                     {data && data.mainSubHeading}
                   </span>
                 </h1>
-                <button type="button" className="btn btn-primary">
+                <button type="button" className="btn btn-primary button-font">
                   <Link
                     to="/detail-page?action_type=view-portfolio&type=allType"
                     style={{ color: 'white' }}
@@ -113,7 +113,9 @@ export default function HomePage() {
                 </button>
               </div>
               <div className="desc py-5 py-lg-0">
-                <p className="mb-5">{data && data.mainDescription}</p>
+                <p className="mb-5 font-size-lg">
+                  {data && data.mainDescription}
+                </p>
                 <div className="d-flex flex-column flex-lg-row align-items-center align-items-lg-start contact-details">
                   <div className="mr-md-4">
                     <img
