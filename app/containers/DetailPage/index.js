@@ -99,7 +99,7 @@ export function DetailPage({ dispatch }) {
       })
       .catch(err => console.log(err));
   }, []);
-  console.log('addd', allData);
+
   useInjectSaga({ key: 'detailPage', saga });
   const {
     location: { search },
@@ -163,18 +163,18 @@ export function DetailPage({ dispatch }) {
                   />
                 </Link>
               </li>
-              <li>
-                <a className="link" href="#portfolio">
+              <li className="ml-lg-5">
+                <a className="link nav-font" href="#portfolio">
                   Portfolio
                 </a>
               </li>
               <li>
-                <a className="link" href="#about">
+                <a className="link nav-font" href="#about">
                   About
                 </a>
               </li>
               <li>
-                <a className="link" href="#contact">
+                <a className="link nav-font" href="#contact">
                   Contact
                 </a>
               </li>
@@ -183,7 +183,7 @@ export function DetailPage({ dispatch }) {
               <div className="mr-2">
                 <img src={bluePhone} alt="phone-image" />
               </div>
-              <div className="details">
+              <div className="details font-size-lg">
                 <span className="number">{allData && allData.phoneNumber}</span>
                 <span> {allData && allData.email}</span>
               </div>
@@ -196,7 +196,9 @@ export function DetailPage({ dispatch }) {
           <ContactUs data={data} />
         </main>
         <footer>
-          <p>© Copyright 2021 | SunRoad Construction | All rights reserved</p>
+          <p className="font-size-lg">
+            © Copyright 2021 | SunRoad Construction | All rights reserved
+          </p>
         </footer>
       </div>
     </div>

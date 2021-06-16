@@ -1,11 +1,23 @@
-.font-size-lg {
+/* .roboto-bold-500 {
   font-size: 1.2rem;
   font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+} */
+
+.bolder {
+  font-weight: bolder;
 }
 
 .button-font {
-  font-size: 12px;
-  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+}
+
+.red-border {
+  border: 1px solid red;
+}
+
+.list-no-bullet {
+  list-style-type: none;
 }
 
 @charset "UTF-8";
@@ -8721,9 +8733,17 @@ img {
   margin-right: 35px;
   flex-shrink: 0;
 }
+
 .header .navigation .logo img {
   display: block;
-  max-width: 100%;
+  max-width: 75px;
+}
+
+@media only screen and (min-width: 768px) {
+  .header .navigation .logo img {
+    display: block;
+    max-width: 180px;
+  }
 }
 .header .navigation .link {
   display: block;
@@ -8744,12 +8764,33 @@ img {
   border-right: 1px solid #0b3862;
   padding-right: 4px;
 }
+
+/* .header .navigation li {
+  margin-left: 16px;
+  font-size: 14px;
+} */
+
 @media (min-width: 576px) {
   .header .navigation li {
     margin-right: 40px;
     font-size: 14px;
   }
+  .font-size-lg {
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+  }
 }
+
+@media (min-width: 768px) {
+  .header .navigation .logo img {
+    display: block;
+    max-width: 120px;
+  }
+  .nav-font {
+    font-size: 18px;
+  }
+}
+
 @media (min-width: 992px) {
   .header {
     position: absolute;
@@ -8787,6 +8828,12 @@ img {
   z-index: 100000;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
+
+.header-portfolio .navigation .logo img {
+  display: block;
+  max-width: 75px;
+}
+
 @media (min-width: 768px) {
   .header-portfolio nav {
     display: flex;
@@ -8808,6 +8855,11 @@ img {
   .header-portfolio .header-details .details {
     display: flex;
     align-items: center;
+  }
+
+  .header-portfolio .navigation .logo img {
+    display: block;
+    max-width: 126px;
   }
 }
 @media (min-width: 992px) {
@@ -8832,7 +8884,7 @@ img {
 }
 @media (min-width: 1200px) {
   .header-portfolio {
-    padding: 15px 30px 15px 100px;
+    padding: 15px 30px 15px 85px;
   }
   .header-portfolio .navigation .logo {
     max-width: 60px;
@@ -9277,6 +9329,7 @@ img {
 .contact .contact-logo {
   max-width: 120px;
   margin: 0 0 15px;
+  display: none;
 }
 .contact .contact-logo a {
   display: block;
@@ -9339,7 +9392,8 @@ img {
   font-weight: 600;
 }
 .portfolio-summary .portfolio-summary-row .desc p {
-  font-size: 13px;
+  /* font-size: 13px; */
+  font-size: 1.2rem;
 }
 .portfolio-summary .portfolio-summary-row .desc ul {
   list-style: disc;

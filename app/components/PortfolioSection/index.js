@@ -87,11 +87,11 @@ const PortfolioSection = ({
                       <div className="decription">
                         <h5>{item[0].otherInfo.projectName}</h5>
                         <div className="sub-heading">
-                          {item[0].otherInfo.description}
+                          {item[0].otherInfo.sqrft}
                         </div>
                         <div className="sub-heading">
-                          {/* {item[0].otherInfo.bedroom} bedroom |{' '}
-                          {item[0].otherInfo.bathrooms} bath */}
+                          {item[0].otherInfo.bedroom}{' '}
+                          {item[0].otherInfo.bathrooms}
                         </div>
                         <p>{item[0].otherInfo.shortDescription}</p>
                       </div>

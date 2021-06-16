@@ -7,7 +7,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo1.png';
+// import logo from '../../assets/images/logo1.png';
 import bluePhone from '../../assets/images/phone-blue.png';
 import phoneWhite from '../../assets/images/phone-white.png';
 import {
@@ -57,17 +57,20 @@ export default function HomePage() {
                 </Link>
               </li>
               <li>
-                <a className="link" href="#portfolio">
+                <a
+                  className="link nav-font mt-lg-5 ml-md-5 ml-lg-3"
+                  href="#portfolio"
+                >
                   Portfolio
                 </a>
               </li>
               <li>
-                <a className="link" href="#about">
+                <a className="link nav-font mt-lg-5" href="#about">
                   About
                 </a>
               </li>
               <li>
-                <a className="link" href="#contact">
+                <a className="link nav-font mt-lg-5" href="#contact">
                   Contact
                 </a>
               </li>
@@ -93,17 +96,18 @@ export default function HomePage() {
                 data.mainCoverPicture.fields.file.url})`,
             }}
           >
-            <div className="content">
-              <div className="title">
-                <h1>
+            <div className="content ">
+              <div className="title mt-lg-5">
+                <h1 className="mb-md-4 mt-lg-4">
                   <span className="text-primary">
                     {data && data.mainHeading}
+                    <br />
                   </span>{' '}
                   <span className="text-secondary">
                     {data && data.mainSubHeading}
                   </span>
                 </h1>
-                <button type="button" className="btn btn-primary button-font">
+                <button type="button " className="btn btn-primary button-font">
                   <Link
                     to="/detail-page?action_type=view-portfolio&type=allType"
                     style={{ color: 'white' }}
@@ -134,7 +138,10 @@ export default function HomePage() {
                     <div>{data && data.email}</div>
                   </div>
                 </div>
-                <button type="button" className="btn btn-primary mt-5">
+                <button
+                  type="button"
+                  className="btn btn-primary mt-5 button-font"
+                >
                   <Link
                     to="/detail-page?action_type=view-portfolio&type=allType"
                     style={{ color: 'white' }}
@@ -213,7 +220,10 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="text-center">
-                <button type="button" className="btn btn-primary">
+                <button
+                  type="button"
+                  className="btn btn-primary rfs-btn button-font"
+                >
                   <Link
                     to="/detail-page?action_type=view-portfolio&type=allType"
                     style={{ color: 'white' }}
@@ -228,7 +238,9 @@ export default function HomePage() {
           <ContactUs data={data} />
         </main>
         <footer>
-          <p>© Copyright 2021 | SunRoad Construction | All rights reserved</p>
+          <p className="font-size-lg">
+            © Copyright 2021 | SunRoad Construction | All rights reserved
+          </p>
         </footer>
       </div>
     </>

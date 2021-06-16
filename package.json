@@ -97,6 +97,7 @@
     "redux": "4.0.1",
     "redux-saga": "1.0.2",
     "reselect": "4.0.0",
+    "rfs": "^9.0.3",
     "sanitize.css": "8.0.0",
     "serve": "^11.3.2",
     "styled-components": "4.2.0"

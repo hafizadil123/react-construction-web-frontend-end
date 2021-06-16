@@ -11,7 +11,7 @@ const InsideDetailpage = ({ showDetail, data }) => {
     url,
   } = firstItem || [];
   return (
-    <section className="portfolio-summary">
+    <section className="portfolio-summary mt-lg-5">
       <div className="container">
         <div className="desc-container">
           <div className="back-btn">
@@ -27,12 +27,9 @@ const InsideDetailpage = ({ showDetail, data }) => {
               </div>
               <div className="desc">
                 <h3>{projectName}</h3>
-                <p>{longDescription}</p>
+                <p className="font-size-lg">{longDescription}</p>
                 <ul>
-                  <li>{sqrft} sq ft</li>
-                  <li>
-                    {bedroom} bedroom | {bathrooms} bath
-                  </li>
+                  <li className="list-no-bullet font-size-lg"> </li>
                 </ul>
               </div>
             </div>

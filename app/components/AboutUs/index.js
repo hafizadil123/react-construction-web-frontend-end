@@ -49,7 +49,9 @@ const AboutUs = ({ data }) => (
         <div className="clients-container">
           <div className="client-holder">
             <p className="font-size-lg">
-              Jeff Browning | Designer & Ultrarunning Coach
+              <span className="roboto-bold-500">
+                Jeff Browning | Designer & Ultrarunning Coach{' '}
+              </span>
               <br />
               &quot;Elias was prompt, hard-working, and has a positive attitude.
               He made sure the job was done right. Good attention to detail. I'd
@@ -58,7 +60,7 @@ const AboutUs = ({ data }) => (
           </div>
           <div className="client-holder">
             <p className="font-size-lg">
-              John Dolan | MA, DDS, MS
+              <span className="roboto-bold-500">John Dolan | MA, DDS, MS </span>
               <br />
               &quot;Elias Uribe has worked on several projects for me over the
               last three years on property in Cottonwood Canyon south of
@@ -74,7 +76,9 @@ const AboutUs = ({ data }) => (
           </div>
           <div className="client-holder">
             <p className="font-size-lg">
-              Seth Bork | Project Management
+              <span className="roboto-bold-500">
+                Seth Bork | Project Management{' '}
+              </span>
               <br />
               &quot;Elias' work was quality, on time, on budget, and with a
               great attitude. I will work with Elias again!&quot;
