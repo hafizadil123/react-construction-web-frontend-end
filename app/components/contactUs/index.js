@@ -117,7 +117,6 @@ const ContactUs = ({ data }) => {
                       inputProps={{
                         name: 'phoneNumber',
                         required: true,
-                        autoFocus: true,
                       }}
                       value={value}
                       onChange={setValue}
