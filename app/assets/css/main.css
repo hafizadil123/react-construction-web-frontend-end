@@ -8775,6 +8775,17 @@ img {
   font-family: 'Roboto', sans-serif;
 }
 
+.hero .content .title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52%;
+  z-index: 1;
+  /* background-color: none; */
+}
+
 @media (min-width: 576px) {
   .header .navigation li {
     margin-right: 40px;
@@ -8937,7 +8948,7 @@ img {
   right: 0;
   height: 52%;
   z-index: 1;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 .hero .content .title h1 {
   font-size: 36px;
