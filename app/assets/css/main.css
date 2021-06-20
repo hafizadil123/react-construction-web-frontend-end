@@ -8770,6 +8770,11 @@ img {
   font-size: 14px;
 } */
 
+.font-size-lg {
+  font-size: 16px;;
+  font-family: 'Roboto', sans-serif;
+}
+
 @media (min-width: 576px) {
   .header .navigation li {
     margin-right: 40px;
@@ -8919,7 +8924,7 @@ img {
   z-index: 3;
 }
 .hero .content .title {
-  background-color: none;
+  background-color: rgba(255, 255, 255, 0.7);
   padding: 30px 20px;
   margin: -10px -10px 0;
   position: relative;
@@ -8951,8 +8956,9 @@ img {
   font-size: 14px;
 }
 .hero .content .desc p {
-  font-weight: 400;
+  font-weight: 500;
 }
+
 .hero .content .desc .details {
   font-size: 16px;
   font-weight: 500;
