@@ -49,7 +49,7 @@ const AboutUs = ({ data }) => (
         <div className="clients-container">
           <div className="client-holder">
             <p className="font-size-lg">
-              <span className="roboto-bold-500">
+              <span className="bold">
                 Jeff Browning | Designer & Ultrarunning Coach{' '}
               </span>
               <br />
@@ -60,7 +60,7 @@ const AboutUs = ({ data }) => (
           </div>
           <div className="client-holder">
             <p className="font-size-lg">
-              <span className="roboto-bold-500">John Dolan | MA, DDS, MS </span>
+              <span className="bold">John Dolan | MA, DDS, MS </span>
               <br />
               &quot;Elias Uribe has worked on several projects for me over the
               last three years on property in Cottonwood Canyon south of
@@ -76,7 +76,7 @@ const AboutUs = ({ data }) => (
           </div>
           <div className="client-holder">
             <p className="font-size-lg">
-              <span className="roboto-bold-500">
+              <span className="bold">
                 Seth Bork | Project Management{' '}
               </span>
               <br />
