@@ -77,7 +77,7 @@ export default function HomePage() {
             </ul>
             <div className="d-flex align-items-center header-details">
               <div className="mr-4">
-                <img src={bluePhone} alt="phone-image" />
+                <img src={bluePhone} alt="phone-blue" />
               </div>
               <div className="details">
                 <div>{data && data.phoneNumber}</div>
@@ -97,8 +97,8 @@ export default function HomePage() {
             }}
           >
             <div className="content ">
-              <div className="title mt-lg-5">
-                <h1 className="mb-md-4 mt-lg-4">
+              <div className="title mt-lg-5 d-md-none">
+                <h1 className="mb-md-4 mt-lg-4 d-md-none">
                   <span className="text-primary">
                     {data && data.mainHeading}
                     <br />
@@ -107,7 +107,7 @@ export default function HomePage() {
                     {data && data.mainSubHeading}
                   </span>
                 </h1>
-                <button type="button " className="btn btn-primary button-font">
+                <button type="button" className="btn btn-primary button-font">
                   <Link
                     to="/detail-page?action_type=view-portfolio&type=allType"
                     style={{ color: 'white' }}
@@ -125,12 +125,12 @@ export default function HomePage() {
                     <img
                       className="d-none d-lg-block"
                       src={bluePhone}
-                      alt="phone-image"
+                      alt="phone-blue"
                     />
                     <img
                       className="d-block d-lg-none mb-2"
                       src={phoneWhite}
-                      alt="phone-image"
+                      alt="phone-white"
                     />
                   </div>
                   <div className="details">
@@ -169,13 +169,14 @@ export default function HomePage() {
                   {data && data.portfolioHeading}
                 </span>
               </h2>
-              <div className="row py-4">
+              <div className="row py-4 justify-content-center">
                 <div className="col-12 col-md-6 col-lg-4 portfolio-holder">
                   <h6>{data && data.categoryOne}</h6>
                   <div className="img-holder">
                     <Link to="/detail-page?action_type=view-portfolio&type=constructionType">
                       <img
                         className="img-cover"
+                        alt="construction"
                         src={
                           data &&
                           data.categoryOneImage &&
@@ -186,7 +187,7 @@ export default function HomePage() {
                     </Link>
                   </div>
                 </div>
-                <div className="col-12 col-md-6 col-lg-4 portfolio-holder">
+                {/* <div className="col-12 col-md-6 col-lg-4 portfolio-holder">
                   <h6>{data && data.categoryTwo}</h6>
                   <div className="img-holder">
                     <Link to="/detail-page?action_type=view-portfolio&type=floorType">
@@ -201,13 +202,14 @@ export default function HomePage() {
                       />
                     </Link>
                   </div>
-                </div>
+                </div> */}
                 <div className="col-12 col-md-6 col-lg-4 portfolio-holder">
                   <h6>{data && data.categoryThree}</h6>
                   <div className="img-holder">
                     <Link to="/detail-page?action_type=view-portfolio&type=remodeling">
                       <img
                         className="img-cover"
+                        alt="remodeling"
                         src={
                           data &&
                           data.categoryThreeImage &&

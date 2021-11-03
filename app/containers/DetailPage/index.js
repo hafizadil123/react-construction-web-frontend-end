@@ -17,7 +17,7 @@ import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectDetailPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import logo from '../../assets/images/logo1.png';
+// import logo from '../../assets/images/logo1.png';
 import 'react-phone-input-2/lib/style.css';
 import ContactUs from '../../components/contactUs';
 import {
@@ -31,6 +31,7 @@ import InsideDetailpage from '../../components/InsideDetailPage';
 import PortfolioSection from '../../components/PortfolioSection';
 import AboutUs from '../../components/AboutUs';
 const contentful = require('contentful');
+// eslint-disable-next-line no-unused-vars
 export function DetailPage({ dispatch }) {
   const [data, setData] = useState({});
   const [detailData, setDetailData] = useState({});
@@ -44,6 +45,7 @@ export function DetailPage({ dispatch }) {
     environment: CONTENTFUL_ENV,
   });
 
+  // eslint-disable-next-line no-shadow
   const filterImagesFromContentfulData = data => {
     const filterImages =
       data &&
@@ -57,17 +59,21 @@ export function DetailPage({ dispatch }) {
     const filteredArray =
       filterImages &&
       filterImages.length > 0 &&
-      filterImages.map(item =>
-        item.meta.images.map(el => {
-          const mappedObject = {
-            url: el.fields && el.fields.file.url,
-            title: el.fields && el.fields.title,
-            description: el.fields && el.fields.description,
-            otherInfo: item.meta,
-          };
+      filterImages.map(
+        item =>
+          item &&
+          item.meta &&
+          item.meta.images &&
+          item.meta.images.map(el => {
+            const mappedObject = {
+              url: el.fields && el.fields.file.url,
+              title: el.fields && el.fields.title,
+              description: el.fields && el.fields.description,
+              otherInfo: item.meta,
+            };
 
-          return mappedObject;
-        }),
+            return mappedObject;
+          }),
       );
     return filteredArray;
   };
@@ -86,12 +92,10 @@ export function DetailPage({ dispatch }) {
       .then(entry => {
         const { fields } = entry || {};
 
-        const { allType, constructionType, floorType, remodeling } =
-          fields || {};
+        const { allType, constructionType, remodeling } = fields || {};
         const filterData = {
           allType,
           constructionType,
-          floorType,
           remodeling,
         };
         setDetailData(filterImagesFromContentfulData(filterData[categoryType]));
@@ -113,10 +117,6 @@ export function DetailPage({ dispatch }) {
     switch (val) {
       case 'constructionType':
         setDetailData(filterImagesFromContentfulData(allData.constructionType));
-        break;
-      case 'floorType':
-        setDetailData(filterImagesFromContentfulData(allData.floorType));
-
         break;
       case 'remodeling':
         setDetailData(filterImagesFromContentfulData(allData.remodeling));
@@ -181,7 +181,7 @@ export function DetailPage({ dispatch }) {
             </ul>
             <div className="d-flex align-items-center header-details">
               <div className="mr-2">
-                <img src={bluePhone} alt="phone-image" />
+                <img src={bluePhone} alt="phone-blue" />
               </div>
               <div className="details font-size-lg">
                 <span className="number">{allData && allData.phoneNumber}</span>

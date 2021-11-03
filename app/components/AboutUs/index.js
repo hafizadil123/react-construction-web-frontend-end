@@ -1,5 +1,6 @@
 import React from 'react';
 
+// eslint-disable-next-line react/prop-types
 const AboutUs = ({ data }) => (
   <>
     <section className="about" id="about">
@@ -22,18 +23,12 @@ const AboutUs = ({ data }) => (
         <div className="title">
           <h3>Elias Uribe</h3>
           <p className="m-lg-0 font-size-lg">
-            I'm an entrepreneur who initially came to Bozeman in 2018 for rock
-            climbing and stayed for the building. I specialize in home remodels
-            and in my free time I like to get out in nature and practice
-            jiujitsu.
+            I&#39;m a young entreprenuer who came to Bozeman Initially for rock
+            climbing and outdoor scene. In 2020 I formulated my LLC and now have
+            4 employees who help me serve Bozeman and the greater areas. In my
+            free time you can find me on the ski slopes or practicing jiujitsu.
           </p>
         </div>
-        {/* <ul className="list">
-          <li>JOGeneral Contractor</li>
-          <li>Project Management</li>
-          <li>Construction Management</li>
-          <li>Consistently exceeding our</li>
-        </ul> */}
       </div>
     </section>
     <section className="clients">
@@ -54,8 +49,8 @@ const AboutUs = ({ data }) => (
               </span>
               <br />
               &quot;Elias was prompt, hard-working, and has a positive attitude.
-              He made sure the job was done right. Good attention to detail. I'd
-              definitely hire him again.&quot; <br />
+              He made sure the job was done right. Good attention to detail.
+              I&#39;d definitely hire him again.&quot; <br />
             </p>
           </div>
           <div className="client-holder">
@@ -76,11 +71,9 @@ const AboutUs = ({ data }) => (
           </div>
           <div className="client-holder">
             <p className="font-size-lg">
-              <span className="bold">
-                Seth Bork | Project Management{' '}
-              </span>
+              <span className="bold">Seth Bork | Project Management </span>
               <br />
-              &quot;Elias' work was quality, on time, on budget, and with a
+              &quot;Elias&#39;s work was quality, on time, on budget, and with a
               great attitude. I will work with Elias again!&quot;
               <br />
             </p>
