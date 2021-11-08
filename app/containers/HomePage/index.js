@@ -38,9 +38,8 @@ export default function HomePage() {
       .then(entry => {
         const { fields } = entry || {};
         setData(fields);
-        console.log(fields);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.warn(err));
   }, []);
   return (
     <>
@@ -187,22 +186,6 @@ export default function HomePage() {
                     </Link>
                   </div>
                 </div>
-                {/* <div className="col-12 col-md-6 col-lg-4 portfolio-holder">
-                  <h6>{data && data.categoryTwo}</h6>
-                  <div className="img-holder">
-                    <Link to="/detail-page?action_type=view-portfolio&type=floorType">
-                      <img
-                        className="img-cover"
-                        src={
-                          data &&
-                          data.categoryTwoImage &&
-                          data.categoryTwoImage.fields &&
-                          data.categoryTwoImage.fields.file.url
-                        }
-                      />
-                    </Link>
-                  </div>
-                </div> */}
                 <div className="col-12 col-md-6 col-lg-4 portfolio-holder">
                   <h6>{data && data.categoryThree}</h6>
                   <div className="img-holder">

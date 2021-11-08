@@ -9275,10 +9275,10 @@ img {
   }
 }
 @media (min-width: 768px) {
-  .hero .content .title{
+  .hero .content .title {
     background-color: rgba(255, 255, 255, 0.7);
   }
-  
+
   .clients .content {
     padding: 60px 70px;
   }
